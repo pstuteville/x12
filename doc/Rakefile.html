@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>File: Rakefile [RDoc Documentation]</title>
+
+  <link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
+
+  <script src="./js/jquery.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript"
+    charset="utf-8"></script>
+</head>
+
+<body class="file">
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./CHANGELOG.html">CHANGELOG</a></li>
+        
+          <li class="file"><a href="./COPYING.html">COPYING</a></li>
+        
+          <li class="file"><a href="./README.html">README</a></li>
+        
+          <li class="file"><a href="./Rakefile.html">Rakefile</a></li>
+        
+          <li class="file"><a href="./TODO.html">TODO</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./X12.html">X12</a></li>
+        
+          <li><a href="./X12/Base.html">X12::Base</a></li>
+        
+          <li><a href="./X12/Composite.html">X12::Composite</a></li>
+        
+          <li><a href="./X12/Empty.html">X12::Empty</a></li>
+        
+          <li><a href="./X12/Field.html">X12::Field</a></li>
+        
+          <li><a href="./X12/Loop.html">X12::Loop</a></li>
+        
+          <li><a href="./X12/Parser.html">X12::Parser</a></li>
+        
+          <li><a href="./X12/Segment.html">X12::Segment</a></li>
+        
+          <li><a href="./X12/Table.html">X12::Table</a></li>
+        
+          <li><a href="./X12/XMLDefinitions.html">X12::XMLDefinitions</a></li>
+        
+          <li><a href="./RDoc.html">RDoc</a></li>
+        
+          <li><a href="./RDoc/Page.html">RDoc::Page</a></li>
+        
+          <li><a href="./Object.html">Object</a></li>
+        
+          <li><a href="./Test270Factory.html">Test270Factory</a></li>
+        
+          <li><a href="./Test270FactoryInterchange.html">Test270FactoryInterchange</a></li>
+        
+          <li><a href="./Test270Parse.html">Test270Parse</a></li>
+        
+          <li><a href="./Test270ParseInterchange.html">Test270ParseInterchange</a></li>
+        
+          <li><a href="./Test997Factory.html">Test997Factory</a></li>
+        
+          <li><a href="./Test997Parse.html">Test997Parse</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    
+<p>#– #     This file is part of the X12Parser library that provides tools
+to #     manipulate <a href="X12.html">X12</a> messages using Ruby native
+syntax. # #     <a
+href="http://x12parser.rubyforge.org">x12parser.rubyforge.org</a>  #      #
+Copyright (C) 2008 APP Design, Inc. # #     This library is free software;
+you can redistribute it and/or #     modify it under the terms of the GNU
+Lesser General Public #     License as published by the Free Software
+Foundation; either #     version 2.1 of the License, or (at your option)
+any later version. # #     This library is distributed in the hope that it
+will be useful, #     but WITHOUT ANY WARRANTY; without even the implied
+warranty of #     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See
+the GNU #     Lesser General Public License for more details. # #     You
+should have received a copy of the GNU Lesser General Public #     License
+along with this library; if not, write to the Free Software #    
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301 
+USA # # $Id: <a href="Rakefile.html">Rakefile</a> 92 2009-05-13 22:12:10Z
+ikk $ #++ require ‘rubygems’ require ‘rake’ require
+‘rake/clean’ require ‘rake/testtask’ require ‘rake/rdoctask’
+require ‘rake/packagetask’ require ‘rake/gempackagetask’ require
+‘rake/contrib/rubyforgepublisher’ require ‘fileutils’ require
+‘pp’</p>
+
+<p>require File.join(File.dirname(__FILE__), ‘lib’, ‘X12’)</p>
+
+<p>PKG_NAME        = ‘X12’ PKG_VERSION     = X12::VERSION PKG_FILE_NAME  
+= “#{PKG_NAME}-#{PKG_VERSION}” PKG_DESTINATION = “../#{PKG_NAME}”</p>
+
+<p>RAKE            = $0 RUBY_DIR        =
+File.expand_path(File.dirname(RAKE)+‘../..’) RUBY            =
+“#{RUBY_DIR}/bin/ruby.exe”</p>
+
+<p>CLEAN.include(</p>
+
+<pre>'**/*.log',
+'doc/**/*',
+'**/*.tmp',
+'lib/X12/X12syntax.rb'
+)</pre>
+
+<p>CLEAN.exclude(</p>
+
+<pre>)</pre>
+
+<p>#puts “Files to clobber: #{CLOBBER}” #puts “Files to clean:
+#{CLEAN}”</p>
+
+<p>desc “Default Task” task :default =&gt; [ :example, :test ]</p>
+
+<p># Run examples task :example do |x|</p>
+
+<pre>Dir['example/*.rb'].each {|f|
+  puts &quot;Running #{f}&quot;
+  sh(RUBY, '-I', 'lib', f) do |ok, res|
+    fail &quot;Command failed (status = #{res.exitstatus})&quot; unless ok
+  end
+}</pre>
+
+<p>end</p>
+
+<p># Run examples in scratch dir task :scratch do |x|</p>
+
+<pre>Dir['scratch/p270.rb'].each {|f|
+  puts &quot;Running #{f}&quot;
+  sh(RUBY, '-I', 'lib', f) do |ok, res|
+    fail &quot;Command failed (status = #{res.exitstatus})&quot; unless ok
+  end
+}</pre>
+
+<p>end</p>
+
+<p>task :test do |x|</p>
+
+<pre>Rake::TestTask.new { |t|</pre>
+
+<p>#    t.libs &lt;&lt; “test”</p>
+
+<pre>t.test_files = Dir['test/tc_*.rb']</pre>
+
+<p>#    t.test_files = <a
+href="http://'test/tc_factory_270interchange.rb'">Dir</a> #    t.test_files
+= <a href="http://'test/tc_parse_270interchange.rb'">Dir</a></p>
+
+<pre>  t.verbose = true
+}</pre>
+
+<p>end # :test</p>
+
+<p>file ‘doc/index.html’ =&gt; [‘<a
+href="misc/rdoc_template_rb.html">misc/rdoc_template.rb</a>’ ] task :rdoc
+=&gt; [‘doc/index.html’]</p>
+
+<p># Generate the <a href="RDoc.html">RDoc</a> documentation
+Rake::RDocTask.new { |rdoc|</p>
+
+<pre>rdoc.rdoc_dir = 'doc'
+rdoc.title    = &quot;X12 -- an X12 parsing library&quot;
+rdoc.options &lt;&lt; '--line-numbers' &lt;&lt; '--inline-source' &lt;&lt; '--main' &lt;&lt; 'README' 
+rdoc.template = 'misc/rdoc_template.rb'
+rdoc.rdoc_files.include('README')
+rdoc.rdoc_files.include('CHANGELOG')
+rdoc.rdoc_files.include('TODO')
+rdoc.rdoc_files.include('lib/**/*.rb')</pre>
+
+<p>}</p>
+
+<p># Create compressed packages by running ‘rake gem’</p>
+
+<p>desc “gem task” task :gem =&gt; [ :clobber, :rdoc ]</p>
+
+<p># Here’s how to look inside the gem package: # ~..&gt;tar xvf
+package.gem; gunzip data.tar.gz metadata.gz; tar xvf data.tar; cat metadata
+spec = Gem::Specification.new do |s|</p>
+
+<pre>s.platform          = Gem::Platform::RUBY
+s.name              = PKG_NAME
+s.version           = PKG_VERSION
+s.summary           = 'X12 parsing and generation library'
+s.description       = 'Library to parse X12 messages and manipulate their loops, segments, fields, composites, and validation tables.'
+s.author            = 'APP Design, Inc.'
+s.email             = 'info@appdesign.com'
+s.rubyforge_project = PKG_NAME
+s.homepage          = &quot;http://www.appdesign.com&quot;
+s.has_rdoc = true
+s.requirements &lt;&lt; 'none'
+s.require_path = 'lib'
+s.autorequire = 'x12'
+[ 
+ &quot;Rakefile&quot;, 
+ &quot;README&quot;, 
+ &quot;TODO&quot;,
+ &quot;CHANGELOG&quot;,
+ &quot;COPYING&quot;,
+ &quot;doc/**/*&quot;,
+ &quot;lib/**/*&quot;,
+ &quot;test/**/*&quot;,
+ &quot;example/**/*&quot;,
+ &quot;misc/**/*&quot;
+].each do |i|
+  s.files += Dir.glob(i).delete_if do
+    |x| x =~ /.*~/
+  end
+end
+puts &quot;Files included into the GEM:&quot; if $VERBOSE
+pp s.files if $VERBOSE
+s.test_files = Dir.glob( &quot;test/tc_*rb&quot; )</pre>
+
+<p>end</p>
+
+<p>Rake::GemPackageTask.new(spec) do |p|</p>
+
+<pre>p.gem_spec = spec
+p.need_tar = true
+p.need_zip = true</pre>
+
+<p>end</p>
+
+  </div>
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+</body>
+</html>
+

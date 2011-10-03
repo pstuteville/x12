@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: X12::Segment</title>
+
+  <link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../lib/x12/segment_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/x12/segment.rb">lib/x12/segment.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="Base.html">X12::Base</a></p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-i-find_field">#find_field</a></li>
+          
+          <li><a href="#method-i-parse">#parse</a></li>
+          
+          <li><a href="#method-i-regexp">#regexp</a></li>
+          
+          <li><a href="#method-i-render">#render</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="../CHANGELOG.html">CHANGELOG</a></li>
+        
+          <li class="file"><a href="../COPYING.html">COPYING</a></li>
+        
+          <li class="file"><a href="../README.html">README</a></li>
+        
+          <li class="file"><a href="../Rakefile.html">Rakefile</a></li>
+        
+          <li class="file"><a href="../TODO.html">TODO</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="../X12.html">X12</a></li>
+        
+          <li><a href="../X12/Base.html">X12::Base</a></li>
+        
+          <li><a href="../X12/Composite.html">X12::Composite</a></li>
+        
+          <li><a href="../X12/Empty.html">X12::Empty</a></li>
+        
+          <li><a href="../X12/Field.html">X12::Field</a></li>
+        
+          <li><a href="../X12/Loop.html">X12::Loop</a></li>
+        
+          <li><a href="../X12/Parser.html">X12::Parser</a></li>
+        
+          <li><a href="../X12/Segment.html">X12::Segment</a></li>
+        
+          <li><a href="../X12/Table.html">X12::Table</a></li>
+        
+          <li><a href="../X12/XMLDefinitions.html">X12::XMLDefinitions</a></li>
+        
+          <li><a href="../RDoc.html">RDoc</a></li>
+        
+          <li><a href="../RDoc/Page.html">RDoc::Page</a></li>
+        
+          <li><a href="../Object.html">Object</a></li>
+        
+          <li><a href="../Test270Factory.html">Test270Factory</a></li>
+        
+          <li><a href="../Test270FactoryInterchange.html">Test270FactoryInterchange</a></li>
+        
+          <li><a href="../Test270Parse.html">Test270Parse</a></li>
+        
+          <li><a href="../Test270ParseInterchange.html">Test270ParseInterchange</a></li>
+        
+          <li><a href="../Test997Factory.html">Test997Factory</a></li>
+        
+          <li><a href="../Test997Parse.html">Test997Parse</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">X12::Segment</h1>
+
+    <div id="description" class="description">
+      
+<p>$Id: Segment.rb 82 2009-05-13 18:07:22Z ikk $</p>
+
+<p>Implements a segment containing fields or composites</p>
+
+    </div><!-- description -->
+
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="find_field-method" class="method-detail ">
+          <a name="method-i-find_field"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">find_field</span><span
+              class="method-args">(str)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Finds a field in the segment. Returns EMPTY if not found.</p>
+            
+
+            
+            <div class="method-source-code" id="find_field-source">
+<pre>
+<span class="ruby-comment"># File lib/x12/segment.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_field</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-comment">#puts &quot;Finding field [#{str}] in #{self.class} #{name}&quot;</span>
+  <span class="ruby-comment"># If there is such a field to begin with</span>
+  <span class="ruby-identifier">field_num</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">each_index</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">field_num</span> = <span class="ruby-identifier">i</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nodes</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">name</span>
+  }
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">EMPTY</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">field_num</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-comment">#puts field_num</span>
+
+  <span class="ruby-comment"># Parse the segment if not parsed already</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@fields</span>
+    <span class="ruby-ivar">@fields</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">chop</span>.<span class="ruby-identifier">split</span>(<span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">field_separator</span>)))
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">each_index</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nodes</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">content</span> = <span class="ruby-ivar">@fields</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>] }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#puts self.nodes[field_num].inspect</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nodes</span>[<span class="ruby-identifier">field_num</span>]
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- find_field-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- find_field-method -->
+
+      
+        <div id="parse-method" class="method-detail ">
+          <a name="method-i-parse"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">parse</span><span
+              class="method-args">(str)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Parses this segment out of a string, puts the match into value, returns the
+rest of the string - nil if cannot parse</p>
+            
+
+            
+            <div class="method-source-code" id="parse-source">
+<pre>
+<span class="ruby-comment"># File lib/x12/segment.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">s</span> = <span class="ruby-identifier">str</span>
+  <span class="ruby-comment">#puts &quot;Parsing segment #{name} from #{s} with regexp [#{regexp.source}]&quot;</span>
+  <span class="ruby-identifier">m</span> = <span class="ruby-identifier">regexp</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">s</span>)
+  <span class="ruby-comment">#puts &quot;Matched #{m ? m[0] : 'nothing'}&quot;</span>
+  
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">m</span>
+
+  <span class="ruby-identifier">s</span> = <span class="ruby-identifier">m</span>.<span class="ruby-identifier">post_match</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parsed_str</span> = <span class="ruby-identifier">m</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-identifier">s</span> = <span class="ruby-identifier">do_repeats</span>(<span class="ruby-identifier">s</span>)
+
+  <span class="ruby-comment">#puts &quot;Parsed segment &quot;+self.inspect</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">s</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- parse-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- parse-method -->
+
+      
+        <div id="regexp-method" class="method-detail ">
+          <a name="method-i-regexp"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">regexp</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Returns a regexp that matches this particular segment</p>
+            
+
+            
+            <div class="method-source-code" id="regexp-source">
+<pre>
+<span class="ruby-comment"># File lib/x12/segment.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">regexp</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@regexp</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">find</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^&quot;.+&quot;$/</span> }
+      <span class="ruby-comment"># It's a very special regexp if there are constant fields</span>
+      <span class="ruby-identifier">re_str</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-node">&quot;^#{name}#{Regexp.escape(field_separator)}&quot;</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">s</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">field_re</span> = <span class="ruby-identifier">i</span>.<span class="ruby-identifier">simple_regexp</span>(<span class="ruby-identifier">field_separator</span>, <span class="ruby-identifier">segment_separator</span>)<span class="ruby-operator">+</span><span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">field_separator</span>)<span class="ruby-operator">+</span><span class="ruby-string">'?'</span>
+        <span class="ruby-identifier">field_re</span> = <span class="ruby-node">&quot;(#{field_re})?&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">required</span>
+        <span class="ruby-identifier">s</span><span class="ruby-operator">+</span><span class="ruby-identifier">field_re</span>
+      } <span class="ruby-operator">+</span> <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">segment_separator</span>)
+      <span class="ruby-ivar">@regexp</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">re_str</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># Simple match</span>
+      <span class="ruby-ivar">@regexp</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;^#{name}#{Regexp.escape(field_separator)}[^#{Regexp.escape(segment_separator)}]*#{Regexp.escape(segment_separator)}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#puts sprintf(&quot;%s %p&quot;, name, @regexp)</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@regexp</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- regexp-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- regexp-method -->
+
+      
+        <div id="render-method" class="method-detail ">
+          <a name="method-i-render"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">render</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Render all components of this segment as string suitable for EDI</p>
+            
+
+            
+            <div class="method-source-code" id="render-source">
+<pre>
+<span class="ruby-comment"># File lib/x12/segment.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">render</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-string">''</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">repeat_str</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">repeats</span>.<span class="ruby-identifier">begin</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span> <span class="ruby-keyword">and</span> <span class="ruby-operator">!</span><span class="ruby-identifier">i</span>.<span class="ruby-identifier">has_content?</span>
+      <span class="ruby-comment"># Skip optional empty segments</span>
+      <span class="ruby-identifier">repeat_str</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># Have to render no matter how empty</span>
+      <span class="ruby-identifier">repeat_str</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">name</span><span class="ruby-operator">+</span><span class="ruby-identifier">i</span>.<span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-string">''</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">nodes_str</span>, <span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">field</span> = <span class="ruby-identifier">j</span>.<span class="ruby-identifier">render</span>
+        (<span class="ruby-identifier">j</span>.<span class="ruby-identifier">required</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">nodes_str</span> <span class="ruby-operator">!=</span> <span class="ruby-string">''</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">field</span> <span class="ruby-operator">!=</span> <span class="ruby-string">''</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">field_separator</span><span class="ruby-operator">+</span><span class="ruby-identifier">field</span><span class="ruby-operator">+</span><span class="ruby-identifier">nodes_str</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">nodes_str</span>
+      }.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[\*]*$/</span>,<span class="ruby-string">''</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">segment_separator</span>
+    <span class="ruby-keyword">end</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- render-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- render-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

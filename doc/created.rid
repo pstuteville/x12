@@ -1,0 +1,25 @@
+Mon, 03 Oct 2011 15:39:14 -0700
+./TODO	Fri, 10 Sep 2010 15:15:21 -0700
+./test/tc_factory_270interchange.rb	Fri, 10 Sep 2010 15:15:22 -0700
+./lib/x12/field.rb	Fri, 10 Sep 2010 15:15:21 -0700
+./test/tc_parse_270.rb	Fri, 10 Sep 2010 15:15:22 -0700
+./lib/x12/parser.rb	Fri, 10 Sep 2010 15:15:21 -0700
+./CHANGELOG	Fri, 10 Sep 2010 15:15:21 -0700
+./lib/x12/composite.rb	Fri, 10 Sep 2010 15:15:21 -0700
+./lib/x12/segment.rb	Fri, 10 Sep 2010 15:15:21 -0700
+./lib/x12/loop.rb	Fri, 10 Sep 2010 15:15:21 -0700
+./lib/x12/base.rb	Fri, 10 Sep 2010 15:15:21 -0700
+./COPYING	Fri, 10 Sep 2010 15:15:21 -0700
+./misc/rdoc_template.rb	Fri, 10 Sep 2010 15:15:22 -0700
+./example/factory.rb	Fri, 10 Sep 2010 15:15:21 -0700
+./lib/x12/xml_definitions.rb	Fri, 10 Sep 2010 15:15:21 -0700
+./lib/x12/empty.rb	Fri, 10 Sep 2010 15:15:21 -0700
+./test/tc_factory_270.rb	Fri, 10 Sep 2010 15:15:22 -0700
+./README	Fri, 10 Sep 2010 15:15:21 -0700
+./lib/x12/table.rb	Fri, 10 Sep 2010 15:15:21 -0700
+./test/tc_parse_997.rb	Fri, 10 Sep 2010 15:15:22 -0700
+./test/tc_parse_270interchange.rb	Fri, 10 Sep 2010 15:15:22 -0700
+./test/tc_factory_997.rb	Fri, 10 Sep 2010 15:15:22 -0700
+./lib/x12.rb	Fri, 10 Sep 2010 15:15:21 -0700
+./Rakefile	Fri, 10 Sep 2010 15:15:21 -0700
+./example/parse.rb	Fri, 10 Sep 2010 15:15:21 -0700
