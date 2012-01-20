@@ -49,6 +49,7 @@ module X12
       s = str
       nodes.each{|i|
         i.segment_separator = self.segment_separator
+        i.field_separator = self.field_separator
         m = i.parse(s)
         s = m if m
       } 
