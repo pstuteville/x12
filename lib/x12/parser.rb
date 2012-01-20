@@ -89,12 +89,13 @@ module X12
     end # initialize
 
     # Parse a loop of a given name out of a string. Throws an exception if the loop name is not defined.
-    def parse(loop_name, str, segment_separator = '~')
+    def parse(loop_name, str, segment_separator = '~', field_separator = '*')
       loop = @x12_definition[X12::Loop][loop_name]
       #puts "Loops to parse #{@x12_definition[X12::Loop].keys}"
       throw Exception.new("Cannot find a definition for loop #{loop_name}") unless loop
       loop = loop.dup
       loop.segment_separator = segment_separator
+      loop.field_separator = field_separator
       loop.parse(str)
       return loop
     end # parse
