@@ -2,8 +2,8 @@
 #     This file is part of the X12Parser library that provides tools to
 #     manipulate X12 messages using Ruby native syntax.
 #
-#     http://x12parser.rubyforge.org 
-#     
+#     http://x12parser.rubyforge.org
+#
 #     Copyright (C) 2008 APP Design, Inc.
 #
 #     This library is free software; you can redistribute it and/or
@@ -65,11 +65,13 @@ module X12
           i.find_field(i.nodes[0].name)
         end
         i.nodes.each{|j|
-          case 
-          when j.kind_of?(X12::Base)  : j.show(ind+'  ')
-          when j.kind_of?(X12::Field) : puts "#{ind+'  '}#{j.name} -> '#{j.to_s}'"
+          case
+          when j.kind_of?(X12::Base)
+            j.show(ind+'  ')
+          when j.kind_of?(X12::Field)
+            puts "#{ind+'  '}#{j.name} -> '#{j.to_s}'"
           end
-        } 
+        }
         count += 1
       }
     end
@@ -117,7 +119,7 @@ module X12
         res = nodes.find{|i| e==i.name }
         return res if res
         # Depth now
-        nodes.each{|i| 
+        nodes.each{|i|
           res = i.find(e) if i.kind_of?(X12::Loop)
           return res unless res.nil? or EMPTY==res # otherwise keep looping
         }
@@ -126,7 +128,7 @@ module X12
       end # case
       return EMPTY
     end
-    
+
     # Present self and all repeats as an array with self being #0
     def to_a
       res = [self]
@@ -168,7 +170,7 @@ module X12
         res
       end # if assignment
     end
-    
+
     # The main method implementing Ruby-like access methods for repeating elements
     def [](*args)
       #puts "squares #{args.inspect}"
@@ -178,12 +180,12 @@ module X12
     # Yields to accompanying block passing self as a parameter.
     def with(&block)
       if block_given?
-        yield self 
+        yield self
       else
         throw Exception.new("Method 'with' requires a block.")
       end
     end
-    
+
     # Returns number of repeats
     def size
       return self.to_a.size

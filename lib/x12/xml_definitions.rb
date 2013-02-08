@@ -2,8 +2,8 @@
 #     This file is part of the X12Parser library that provides tools to
 #     manipulate X12 messages using Ruby native syntax.
 #
-#     http://x12parser.rubyforge.org 
-#     
+#     http://x12parser.rubyforge.org
+#
 #     Copyright (C) 2008 APP Design, Inc.
 #
 #     This library is free software; you can redistribute it and/or
@@ -25,7 +25,7 @@
 
 
 module X12
-  
+
   # $Id: XMLDefinitions.rb 90 2009-05-13 19:51:27Z ikk $
   #
   # A class for parsing X12 message definition expressed in XML format.
@@ -33,7 +33,7 @@ module X12
   class XMLDefinitions < Hash
     require "rexml/document"
     include REXML
-    
+
     # Parse definitions out of XML file
     def initialize(str)
       doc = Document.new(str)
@@ -41,10 +41,14 @@ module X12
       definitions.each { |element|
         #puts element.name
         syntax_element = case element.name
-                         when /table/i     : parse_table(element)
-                         when /segment/i   : parse_segment(element)
-                         when /composite/i : parse_composite(element)
-                         when /loop/i      : parse_loop(element)
+                         when /table/i
+                          parse_table(element)
+                         when /segment/i
+                          parse_segment(element)
+                         when /composite/i
+                          parse_composite(element)
+                         when /loop/i
+                          parse_loop(element)
                          end
 
         self[syntax_element.class] ||= {}
@@ -56,10 +60,14 @@ module X12
 
     def parse_boolean(s)
       return case s
-             when nil : false
-             when "" : false
-             when /(^y(es)?$)|(^t(rue)?$)|(^1$)/i : true
-             when /(^no?$)|(^f(alse)?$)|(^0$)/i : false
+             when nil
+              false
+             when ""
+              false
+             when /(^y(es)?$)|(^t(rue)?$)|(^1$)/i
+              true
+             when /(^no?$)|(^f(alse)?$)|(^0$)/i
+              false
              else
                nil
              end # case
@@ -67,12 +75,18 @@ module X12
 
     def parse_type(s)
       return case s
-             when nil : 'string'
-             when /^C.+$/ : s
-             when /^i(nt(eger)?)?$/i : 'int'
-             when /^l(ong)?$/i : 'long'
-             when /^d(ouble)?$/i : 'double'
-             when /^s(tr(ing)?)?$/i : 'string'
+             when nil
+              'string'
+             when /^C.+$/
+              s
+             when /^i(nt(eger)?)?$/i
+              'int'
+             when /^l(ong)?$/i
+              'long'
+             when /^d(ouble)?$/i
+              'double'
+             when /^s(tr(ing)?)?$/i
+              'string'
              else
                nil
              end # case
@@ -80,21 +94,24 @@ module X12
 
     def parse_int(s)
       return case s
-             when nil : 0
-             when /^\d+$/ : s.to_i
-             when /^inf(inite)?$/ : 999999
+             when nil
+              0
+             when /^\d+$/
+              s.to_i
+             when /^inf(inite)?$/
+              999999
              else
                nil
              end # case
     end #parse_int
 
     def parse_attributes(e)
-      throw Exception.new("No name attribute found for : #{e.inspect}")          unless name = e.attributes["name"] 
+      throw Exception.new("No name attribute found for : #{e.inspect}")          unless name = e.attributes["name"]
       throw Exception.new("Cannot parse attribute 'min' for: #{e.inspect}")      unless min = parse_int(e.attributes["min"])
       throw Exception.new("Cannot parse attribute 'max' for: #{e.inspect}")      unless max = parse_int(e.attributes["max"])
       throw Exception.new("Cannot parse attribute 'type' for: #{e.inspect}")     unless type = parse_type(e.attributes["type"])
       throw Exception.new("Cannot parse attribute 'required' for: #{e.inspect}") if (required = parse_boolean(e.attributes["required"])).nil?
-      
+
       validation = e.attributes["validation"]
       min = 1 if required and min < 1
       max = 999999 if max == 0
@@ -148,8 +165,10 @@ module X12
 
       components = e.elements.to_a.inject([]){|r, element|
         r << case element.name
-             when /loop/i    : parse_loop(element)
-             when /segment/i : parse_segment(element)
+             when /loop/i
+              parse_loop(element)
+             when /segment/i
+              parse_segment(element)
              else
                throw Exception.new("Cannot recognize syntax for: #{element.inspect} in loop #{e.inspect}")
              end # case

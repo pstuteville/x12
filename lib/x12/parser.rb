@@ -2,8 +2,8 @@
 #     This file is part of the X12Parser library that provides tools to
 #     manipulate X12 messages using Ruby native syntax.
 #
-#     http://x12parser.rubyforge.org 
-#     
+#     http://x12parser.rubyforge.org
+#
 #     Copyright (C) 2008 APP Design, Inc.
 #
 #     This library is free software; you can redistribute it and/or
@@ -27,7 +27,7 @@
 require 'pp'
 
 module X12
-  
+
   # $Id: Parser.rb 89 2009-05-13 19:36:20Z ikk $
   #
   # Main class for creating X12 parsers and factories.
@@ -35,9 +35,9 @@ module X12
   class Parser
     require "rexml/document"
     include REXML
-    
+
     # These constitute prohibited file names under Microsoft
-    MS_DEVICES = [   
+    MS_DEVICES = [
                   'CON',
                   'PRN',
                   'AUX',
@@ -79,7 +79,7 @@ module X12
         @x12_definition.keys.each{|t|
           save_definition[t] ||= {}
           @x12_definition[t].keys.each{|u|
-            save_definition[t][u] = @x12_definition[t][u] 
+            save_definition[t][u] = @x12_definition[t][u]
           }
           @x12_definition = save_definition
         }
@@ -115,8 +115,10 @@ module X12
     def process_loop(loop)
       loop.nodes.each{|i|
         case i
-          when X12::Loop: process_loop(i)
-          when X12::Segment: process_segment(i) unless i.nodes.size > 0
+          when X12::Loop
+            process_loop(i)
+          when X12::Segment
+            process_segment(i) unless i.nodes.size > 0
           else return
         end
       }
@@ -134,7 +136,7 @@ module X12
         segment_definition = @x12_definition[X12::Segment][segment.name]
       end
       segment_definition.nodes.each_index{|i|
-        segment.nodes[i] = segment_definition.nodes[i] 
+        segment.nodes[i] = segment_definition.nodes[i]
         # Make sure we have the validation table if any for this field. Try to read one in if missing.
         table = segment.nodes[i].validation
         if table
